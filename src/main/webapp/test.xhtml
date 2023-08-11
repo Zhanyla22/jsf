@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
+<h:head>
+    <title>JSF with Spring Boot</title>
+</h:head>
+<h:body>
+    <h1>Helo test</h1>
+    <p:inputText id="222"/>
+    <h:outputText value="Visit Product Page"/>
+    <h:outputText id="123" value="#{productController.getById(1).name}"/>
+    <h:inputText id="hell" value="#{productController.getById(2).name}" style="width: 35px; height: 25px"/>
+</h:body>
+</html>
