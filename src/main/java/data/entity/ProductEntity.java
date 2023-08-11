@@ -4,6 +4,7 @@ import data.entity.base.BaseEntity;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;

@@ -1,2 +1,8 @@
 C:\Users\jamam\untitled\src\main\java\data\UntitledApplication.java
-C:\Users\jamam\untitled\src\main\java\data\MsgBean.java
+C:\Users\jamam\untitled\src\main\java\data\dto\response\ProductDto.java
+C:\Users\jamam\untitled\src\main\java\data\service\ProductService.java
+C:\Users\jamam\untitled\src\main\java\data\entity\ProductEntity.java
+C:\Users\jamam\untitled\src\main\java\data\entity\base\BaseEntity.java
+C:\Users\jamam\untitled\src\main\java\data\repo\ProductRepo.java
+C:\Users\jamam\untitled\src\main\java\data\controller\ProductController.java
+C:\Users\jamam\untitled\src\main\java\data\service\impl\ProductServiceImpl.java

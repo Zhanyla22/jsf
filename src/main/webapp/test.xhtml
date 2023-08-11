@@ -7,9 +7,10 @@
 </h:head>
 <h:body>
     <h1>Helo test</h1>
-    <p:inputText id="222"/>
-    <h:outputText value="Visit Product Page"/>
-    <h:outputText id="123" value="#{productController.getById(1).name}"/>
-    <h:inputText id="hell" value="#{productController.getById(2).name}" style="width: 35px; height: 25px"/>
+    <h:outputText value="Name: " />
+    <p:inputText id="name" value="#{productController.getById(1).name}" />
+<!--    <h:outputText value="Visit Product Page"/>-->
+<!--    <h:outputText id="123" value="#{productController.getById(1).name}"/>-->
+<!--    <h:inputText id="hell" value="#{productController.getById(2).name}" style="width: 35px; height: 25px"/>-->
 </h:body>
 </html>

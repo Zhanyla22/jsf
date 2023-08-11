@@ -1,2 +1,10 @@
+data\dto\response\ProductDto.class
+data\service\ProductService.class
+data\dto\response\ProductDto$ProductDtoBuilder.class
+data\service\impl\ProductServiceImpl.class
+data\entity\base\BaseEntity.class
 data\UntitledApplication.class
-data\MsgBean.class
+data\repo\ProductRepo.class
+data\controller\ProductController.class
+data\entity\ProductEntity$ProductEntityBuilder.class
+data\entity\ProductEntity.class
