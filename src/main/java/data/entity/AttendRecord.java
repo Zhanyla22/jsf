@@ -5,7 +5,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,10 +21,13 @@ public class AttendRecord extends BaseEntity {
     Integer delayInMin;
 
     @Column(name = "attend_date")
-    LocalDateTime attendDate;
+    LocalDate attendDate;
 
     @Column(name = "streak")
-    Byte streak;
+    Integer streak;
+
+    @Column(name = "money")
+    Long money;
 
     @ManyToOne(optional = false)
     @JoinColumn(columnDefinition = "user_id",
