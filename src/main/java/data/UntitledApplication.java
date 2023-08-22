@@ -13,11 +13,11 @@ import java.util.Arrays;
 public class UntitledApplication {
     public static void main(String[] args) {
         SpringApplication.run(UntitledApplication.class, args);
+
     }
 
-
     @Bean
-    ServletRegistrationBean jsfServletRegistration (ServletContext servletContext) {
+    ServletRegistrationBean jsfServletRegistration(ServletContext servletContext) {
 
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
 
@@ -27,5 +27,7 @@ public class UntitledApplication {
         srb.setLoadOnStartup(1);
         return srb;
     }
+
+
 }
 

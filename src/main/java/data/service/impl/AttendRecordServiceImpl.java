@@ -24,20 +24,15 @@ public class AttendRecordServiceImpl implements AttendRecordService {
             attendRecord1.setDelayInMin(addDelayDto.getDelayInMin());
             attendRecord1.setAttendDate(addDelayDto.getDate());
 
-            AttendRecord attendRecord = attendanceRepo.findLast(addDelayDto.getUserId())
-                    .orElseThrow(() -> new Exception("нет даты до этого"));
+            AttendRecord attendRecord = attendanceRepo.findLast(addDelayDto.getUserId()).orElse(null);
             if (attendRecord == null) {
                 attendRecord1.setStreak(1);
-            }
-            else if (attendRecord.getAttendDate().getDayOfWeek().getValue() == 5 && addDelayDto.getDate().getDayOfWeek().getValue() == 1) {
+            } else if (attendRecord.getAttendDate().getDayOfWeek().getValue() == 5 && addDelayDto.getDate().getDayOfWeek().getValue() == 1) {
                 attendRecord1.setStreak(attendRecord.getStreak() + 1);
-            }
-            else if (attendRecord.getAttendDate().plusDays(1) == addDelayDto.getDate()) {
-                attendRecord1.setStreak(attendRecord1.getStreak() + 1);
-                System.out.println(attendRecord.getAttendDate().plusDays(1));
-            }
-            else attendRecord1.setStreak(1);
-            attendRecord1.setMoney((long) (attendRecord1.getStreak()* attendRecord.getDelayInMin()));
+            } else if (attendRecord.getAttendDate().plusDays(1).compareTo(addDelayDto.getDate()) == 0) {
+                attendRecord1.setStreak(attendRecord.getStreak() + 1);
+            } else attendRecord1.setStreak(1);
+            attendRecord1.setMoney((long) (attendRecord1.getStreak() * addDelayDto.getDelayInMin()));
             attendanceRepo.save(attendRecord1);
         }
     }
