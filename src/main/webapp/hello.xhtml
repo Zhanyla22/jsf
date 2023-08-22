@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
 >
 <h:head>
+    <title>JSF with Spring Boot</title>
 </h:head>
-
 <h:body>
     <h:form>
-        <h:outputText id="hello-output" value="#{helloBean.msg}"/>
-        <br/>
+        <h:dataTable value="#{messageBean.allProduct}" var="pp">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                #{pp.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{pp.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{pp.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Quantity</f:facet>
+                #{pp.quantity}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Дата создания</f:facet>
+                #{pp.createdDate}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Дата изменния</f:facet>
+                #{pp.updatedDate}
+            </h:column>
+        </h:dataTable>
     </h:form>
 </h:body>
 </html>
