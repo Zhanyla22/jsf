@@ -20,7 +20,7 @@ public class AttendRecordServiceImpl implements AttendRecordService {
     public void addDelayMin(AddDelayDto addDelayDto) throws Exception {
         if (!attendanceRepo.existsByUserEntityIdAndAttendDate(addDelayDto.getUserId(), addDelayDto.getDate())) {
             AttendRecord attendRecord1 = new AttendRecord();
-            attendRecord1.setUserEntity(userRepo.findById(addDelayDto.getUserId()).orElseThrow(() -> new RuntimeException("no user with this id")));
+            attendRecord1.setUserEntity(userRepo.findById(addDelayDto.getUserId()).orElseThrow(() -> new RuntimeException("такого юзер с айди ="+addDelayDto.getUserId()+ " нет")));
             attendRecord1.setDelayInMin(addDelayDto.getDelayInMin());
             attendRecord1.setAttendDate(addDelayDto.getDate());
 
@@ -35,5 +35,6 @@ public class AttendRecordServiceImpl implements AttendRecordService {
             attendRecord1.setMoney((long) (attendRecord1.getStreak() * addDelayDto.getDelayInMin()));
             attendanceRepo.save(attendRecord1);
         }
+        else throw new Exception("В этот день уже опаздывали, выберите другой день");
     }
 }
