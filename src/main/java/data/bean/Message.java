@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean(eager = true)
 @Scope
 public class Message {
+
     private String message = "Hello World!";
 
     public String getMessage() {

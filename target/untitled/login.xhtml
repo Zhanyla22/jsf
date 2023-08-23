@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Страница логина</title>
+</h:head>
+<h:body>
+    <h:form>
+        <p:panel header="Login">
+            <p:messages autoUpdate="true" />
+            <h:outputLabel for="username" value="Username" />
+            <p:inputText id="username" value="#{loginDto.userName}" required="true" />
+            <h:outputLabel for="password" value="Password" />
+            <p:password id="password" value="#{loginDto.password}" required="true" />
+            <p:commandButton value="Login" action="#{auth.login()}" />
+        </p:panel>
+    </h:form>
+</h:body>
+</html>

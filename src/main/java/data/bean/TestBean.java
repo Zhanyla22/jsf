@@ -1,31 +1,20 @@
 package data.bean;
 
-import org.springframework.context.annotation.Scope;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 
-@ManagedBean(eager = true)
-@Scope
+@ManagedBean
+@SessionScope
 public class TestBean {
 
-    @ManagedProperty(value = "#{message}")
-    private Message messageBean;
-    private String message;
+    @Getter
+    @Setter
+    private String data;
 
-    public TestBean() {
-        System.out.println("класс TestBean");
-    }
-
-    public String getMessage() {
-
-        if (messageBean != null) {
-            message = messageBean.getMessage();
-        }
-        return message;
-    }
-
-    public void setMessageBean(Message message) {
-        this.messageBean = message;
+    public void greet() {
+        System.out.println(data);;
     }
 }

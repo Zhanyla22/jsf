@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://java.sun.com/jsf/html">
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>JSF with Spring Boot</title>
+    <title>Страница опозданий</title>
 </h:head>
 <h:body>
-    <h1>Helo test</h1>
-    <h:outputText value="Name: " />
-    <p:inputText id="name" value="#{productServiceImpl.getById(1).name}" />
-<!--    <h:outputText value="Visit Product Page"/>-->
-<!--    <h:outputText id="123" value="#{productController.getById(1).name}"/>-->
-<!--    <h:inputText id="hell" value="#{productController.getById(2).name}" style="width: 35px; height: 25px"/>-->
+    <h:form>
+        <br/>
+        <p:linkButton value="назад" outcome="admin" type="button" styleClass="ui-button-secondary"/> <br/> <br/>
+        <p:dataTable value="database" var="row" responsive="true" style="display: flex; justify-content: center;">
+            <p:column headerText="Дата" style=" text-align: center;">
+                <h:outputText value="data"/>
+            </p:column>
+            <p:column headerText="Задержка в минутах" style=" text-align: center;">
+                <h:outputText value="delay"/>
+            </p:column>
+            <p:column headerText="Деньги" style=" text-align: center;">
+                <h:outputText value="money"/>
+            </p:column>
+            <p:column headerText="Стрик" style=" text-align: center;">
+                <h:outputText value="streak"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
 </h:body>
 </html>
