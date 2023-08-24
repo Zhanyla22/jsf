@@ -1,10 +1,14 @@
 package data.controller;
 
+import data.controller.base.BaseController;
 import data.dto.request.AddDelayDto;
+import data.dto.response.AddAttendResponse;
 import data.dto.response.DelayUserDto;
+import data.dto.response.ResponseDto;
 import data.service.AttendRecordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,27 +22,14 @@ import java.util.List;
 @ManagedBean(name = "auth")
 @Scope
 @Controller
-public class TestController {
-
-//    public String data;
-//
-//    public String getData() {
-//        return data;
-//    }
-//
-//    public void setData(String data) {
-//        this.data = data;
-//    }
-//
-//    public String greet() {
-//        return "hello";
-//    }
+public class TestController extends BaseController {
 
     private final AttendRecordService attendRecordService;
 
     @PostMapping("/add")
-    public void add(@RequestBody AddDelayDto addDelayDto) {
-        attendRecordService.addDelayMin(addDelayDto);
+    public ResponseEntity<ResponseDto> add(@RequestBody AddDelayDto addDelayDto) {
+        AddAttendResponse attens = attendRecordService.addDelayMin(addDelayDto);
+        return constructSuccessResponse(attens);
     }
 
     @GetMapping("/{id}")
